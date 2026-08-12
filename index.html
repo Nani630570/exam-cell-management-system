@@ -1,1 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Exam Cell Management System</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        header p {
+            font-size: 16px;
+        }
+
+        nav {
+            background: #0b2948;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 12px;
+            gap: 10px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: #1e6091;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .hero h2 {
+            color: #123c69;
+            font-size: 34px;
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+        }
+
+        .button {
+            display: inline-block;
+            background: #123c69;
+            color: white;
+            padding: 12px 25px;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .section {
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #123c69;
+            margin-bottom: 25px;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            background: white;
+            width: 250px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+
+        .card h3 {
+            color: #123c69;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            line-height: 1.5;
+        }
+
+        footer {
+            background: #0b2948;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 24px;
+            }
+
+            .hero h2 {
+                font-size: 26px;
+            }
+
+            .card {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Exam Cell Management System</h1>
+        <p>Student Examination Services Portal</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="#notifications">Notifications</a>
+        <a href="#timetable">Time Table</a>
+        <a href="#results">Results</a>
+        <a href="#hallticket">Hall Ticket</a>
+        <a href="#login">Student Login</a>
+    </nav>
+
+    <section class="hero">
+        <h2>Welcome to Exam Cell</h2>
+
+        <p>
+            Manage examination information, timetables,
+            results and hall tickets in one place.
+        </p>
+
+        <a href="#notifications" class="button">
+            View Notifications
+        </a>
+    </section>
+
+    <section class="section" id="notifications">
+        <h2>Exam Cell Services</h2>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>📢 Notifications</h3>
+                <p>
+                    Get the latest examination announcements
+                    and important updates.
+                </p>
+            </div>
+
+            <div class="card" id="timetable">
+                <h3>📅 Time Table</h3>
+                <p>
+                    View semester-wise examination
+                    timetables and schedules.
+                </p>
+            </div>
+
+            <div class="card" id="results">
+                <h3>📊 Results</h3>
+                <p>
+                    Students can check their examination
+                    results using their hall ticket number.
+                </p>
+            </div>
+
+            <div class="card" id="hallticket">
+                <h3>🎫 Hall Ticket</h3>
+                <p>
+                    View and download examination
+                    hall ticket information.
+                </p>
+            </div>
+
+            <div class="card" id="login">
+                <h3>👨‍🎓 Student Login</h3>
+                <p>
+                    Students can securely access their
+                    examination details.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Exam Cell Management System</p>
+        <p>Designed for Academic Project</p>
+    </footer>
+
+</body>
+</html>
