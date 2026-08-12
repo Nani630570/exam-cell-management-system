@@ -1,226 +1,369 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Exam Cell Management System</title>
+<title>Exam Cell Management System</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
 
-        body {
-            background: #f4f7fb;
-            color: #222;
-        }
+body {
+    background: #f4f7fb;
+    color: #222;
+}
 
-        header {
-            background: #123c69;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
+header {
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+}
 
-        header h1 {
-            font-size: 30px;
-            margin-bottom: 8px;
-        }
+header h1 {
+    font-size: 30px;
+    margin-bottom: 8px;
+}
 
-        header p {
-            font-size: 16px;
-        }
+header p {
+    font-size: 16px;
+}
 
-        nav {
-            background: #0b2948;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            padding: 12px;
-            gap: 10px;
-        }
+nav {
+    background: #0b2948;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 12px;
+}
 
-        nav a {
-            color: white;
-            text-decoration: none;
-            padding: 10px 16px;
-            border-radius: 5px;
-        }
+nav button {
+    background: white;
+    color: #123c69;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
 
-        nav a:hover {
-            background: #1e6091;
-        }
+nav button:hover {
+    background: #dcecff;
+}
 
-        .hero {
-            text-align: center;
-            padding: 60px 20px;
-            background: white;
-        }
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 25px;
+}
 
-        .hero h2 {
-            color: #123c69;
-            font-size: 34px;
-            margin-bottom: 15px;
-        }
+.hero {
+    background: white;
+    text-align: center;
+    padding: 35px 20px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+}
 
-        .hero p {
-            font-size: 18px;
-            margin-bottom: 25px;
-        }
+.hero h2 {
+    color: #123c69;
+    margin-bottom: 10px;
+}
 
-        .button {
-            display: inline-block;
-            background: #123c69;
-            color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 6px;
-        }
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
 
-        .section {
-            padding: 40px 20px;
-            text-align: center;
-        }
+.card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    text-align: center;
+}
 
-        .section h2 {
-            color: #123c69;
-            margin-bottom: 25px;
-        }
+.card h3 {
+    color: #123c69;
+    margin-bottom: 10px;
+}
 
-        .cards {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
+.card button {
+    margin-top: 15px;
+    padding: 10px 18px;
+    border: none;
+    background: #123c69;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        .card {
-            background: white;
-            width: 250px;
-            padding: 25px;
-            border-radius: 10px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-        }
+.section {
+    display: none;
+    background: white;
+    padding: 25px;
+    margin-top: 25px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
 
-        .card h3 {
-            color: #123c69;
-            margin-bottom: 10px;
-        }
+.section h2 {
+    color: #123c69;
+    margin-bottom: 15px;
+}
 
-        .card p {
-            color: #555;
-            line-height: 1.5;
-        }
+input {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
 
-        footer {
-            background: #0b2948;
-            color: white;
-            text-align: center;
-            padding: 20px;
-            margin-top: 30px;
-        }
+.submit-btn {
+    background: #123c69;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
 
-        @media (max-width: 600px) {
-            header h1 {
-                font-size: 24px;
-            }
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
+}
 
-            .hero h2 {
-                font-size: 26px;
-            }
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: center;
+}
 
-            .card {
-                width: 90%;
-            }
-        }
-    </style>
+th {
+    background: #123c69;
+    color: white;
+}
+
+footer {
+    margin-top: 30px;
+    background: #123c69;
+    color: white;
+    text-align: center;
+    padding: 18px;
+}
+
+@media(max-width:600px) {
+    header h1 {
+        font-size: 23px;
+    }
+
+    .container {
+        padding: 15px;
+    }
+
+    table {
+        font-size: 13px;
+    }
+}
+</style>
 </head>
 
 <body>
 
-    <header>
-        <h1>Exam Cell Management System</h1>
-        <p>Student Examination Services Portal</p>
-    </header>
+<header>
+    <h1>Exam Cell Management System</h1>
+    <p>Manage Examination Information Easily</p>
+</header>
 
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="#notifications">Notifications</a>
-        <a href="#timetable">Time Table</a>
-        <a href="#results">Results</a>
-        <a href="#hallticket">Hall Ticket</a>
-        <a href="#login">Student Login</a>
-    </nav>
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('timetable')">Timetable</button>
+    <button onclick="showSection('results')">Results</button>
+    <button onclick="showSection('hallticket')">Hall Ticket</button>
+    <button onclick="showSection('login')">Student Login</button>
+</nav>
 
-    <section class="hero">
-        <h2>Welcome to Exam Cell</h2>
+<div class="container">
 
+<section id="home">
+    <div class="hero">
+        <h2>Welcome to Exam Cell Management System</h2>
         <p>
-            Manage examination information, timetables,
-            results and hall tickets in one place.
+            Get examination notifications, timetables,
+            results and hall ticket information in one place.
         </p>
+    </div>
 
-        <a href="#notifications" class="button">
-            View Notifications
-        </a>
-    </section>
+    <div class="cards">
 
-    <section class="section" id="notifications">
-        <h2>Exam Cell Services</h2>
-
-        <div class="cards">
-
-            <div class="card">
-                <h3>📢 Notifications</h3>
-                <p>
-                    Get the latest examination announcements
-                    and important updates.
-                </p>
-            </div>
-
-            <div class="card" id="timetable">
-                <h3>📅 Time Table</h3>
-                <p>
-                    View semester-wise examination
-                    timetables and schedules.
-                </p>
-            </div>
-
-            <div class="card" id="results">
-                <h3>📊 Results</h3>
-                <p>
-                    Students can check their examination
-                    results using their hall ticket number.
-                </p>
-            </div>
-
-            <div class="card" id="hallticket">
-                <h3>🎫 Hall Ticket</h3>
-                <p>
-                    View and download examination
-                    hall ticket information.
-                </p>
-            </div>
-
-            <div class="card" id="login">
-                <h3>👨‍🎓 Student Login</h3>
-                <p>
-                    Students can securely access their
-                    examination details.
-                </p>
-            </div>
-
+        <div class="card">
+            <h3>📅 Exam Timetable</h3>
+            <p>View examination dates and subjects.</p>
+            <button onclick="showSection('timetable')">
+                View Timetable
+            </button>
         </div>
-    </section>
 
-    <footer>
-        <p>© 2026 Exam Cell Management System</p>
-        <p>Designed for Academic Project</p>
-    </footer>
+        <div class="card">
+            <h3>📝 Results</h3>
+            <p>Check your examination results.</p>
+            <button onclick="showSection('results')">
+                Check Results
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>🎫 Hall Ticket</h3>
+            <p>View your examination hall ticket.</p>
+            <button onclick="showSection('hallticket')">
+                Hall Ticket
+            </button>
+        </div>
+
+        <div class="card">
+            <h3>🎓 Student Login</h3>
+            <p>Login to access examination details.</p>
+            <button onclick="showSection('login')">
+                Login
+            </button>
+        </div>
+
+    </div>
+</section>
+
+
+<section id="timetable" class="section">
+    <h2>📅 Examination Timetable</h2>
+
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Subject</th>
+            <th>Time</th>
+        </tr>
+
+        <tr>
+            <td>20-08-2026</td>
+            <td>Computer Networks</td>
+            <td>9:30 AM - 12:30 PM</td>
+        </tr>
+
+        <tr>
+            <td>22-08-2026</td>
+            <td>Web Technologies</td>
+            <td>9:30 AM - 12:30 PM</td>
+        </tr>
+
+        <tr>
+            <td>25-08-2026</td>
+            <td>Database Management</td>
+            <td>9:30 AM - 12:30 PM</td>
+        </tr>
+    </table>
+</section>
+
+
+<section id="results" class="section">
+    <h2>📝 Examination Results</h2>
+
+    <input type="text" id="hallNo" placeholder="Enter Hall Ticket Number">
+
+    <button class="submit-btn" onclick="checkResult()">
+        Check Result
+    </button>
+
+    <p id="resultMessage" style="margin-top:15px;"></p>
+</section>
+
+
+<section id="hallticket" class="section">
+    <h2>🎫 Hall Ticket</h2>
+
+    <input type="text" placeholder="Enter Hall Ticket Number">
+
+    <button class="submit-btn" onclick="alert('Hall Ticket details will be displayed here.')">
+        View Hall Ticket
+    </button>
+</section>
+
+
+<section id="login" class="section">
+    <h2>🎓 Student Login</h2>
+
+    <input type="text" placeholder="Student ID">
+
+    <input type="password" placeholder="Password">
+
+    <button class="submit-btn" onclick="loginStudent()">
+        Login
+    </button>
+
+    <p id="loginMessage" style="margin-top:15px;"></p>
+</section>
+
+</div>
+
+
+<footer>
+    <p>© 2026 Exam Cell Management System</p>
+    <p>Designed for Students</p>
+</footer>
+
+
+<script>
+
+function showSection(sectionName) {
+
+    document.getElementById("home").style.display = "none";
+
+    let sections = document.querySelectorAll(".section");
+
+    sections.forEach(function(section) {
+        section.style.display = "none";
+    });
+
+    if(sectionName === "home") {
+        document.getElementById("home").style.display = "block";
+    } 
+    else {
+        document.getElementById(sectionName).style.display = "block";
+    }
+}
+
+function checkResult() {
+
+    let hallNo = document.getElementById("hallNo").value;
+
+    if(hallNo === "") {
+        document.getElementById("resultMessage").innerHTML =
+        "Please enter your Hall Ticket Number.";
+    } 
+    else {
+        document.getElementById("resultMessage").innerHTML =
+        "Result search completed for Hall Ticket: " + hallNo;
+    }
+}
+
+function loginStudent() {
+
+    document.getElementById("loginMessage").innerHTML =
+    "Login system is ready. Backend connection can be added later.";
+}
+
+showSection("home");
+
+</script>
 
 </body>
 </html>
