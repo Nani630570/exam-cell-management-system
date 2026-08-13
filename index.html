@@ -2,15 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
 <title>Exam Cell Management System</title>
 
 <style>
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
     font-family: Arial, sans-serif;
 }
 
@@ -19,77 +23,163 @@ body {
     color: #222;
 }
 
+/* ================= HEADER ================= */
+
 header {
-    background: #123c69;
+    background: linear-gradient(135deg, #123c69, #0b2948);
     color: white;
-    text-align: center;
-    padding: 25px 15px;
+    padding: 18px 25px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.2);
 }
 
-header h1 {
-    font-size: 30px;
-    margin-bottom: 8px;
-}
-
-header p {
-    font-size: 16px;
-}
-
-nav {
-    background: #0b2948;
+.header-container {
+    max-width: 1200px;
+    margin: auto;
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-    padding: 12px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
 }
 
-nav button {
-    background: white;
-    color: #123c69;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 5px;
-    cursor: pointer;
+.logo {
+    font-size: 22px;
     font-weight: bold;
 }
 
-nav button:hover {
-    background: #dcecff;
+.logo span {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    margin-top: 4px;
 }
 
-.container {
-    max-width: 1100px;
-    margin: auto;
-    padding: 25px;
+nav {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 7px;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+nav a:hover {
+    background: rgba(255,255,255,0.18);
+}
+
+/* ================= HERO ================= */
 
 .hero {
-    background: white;
+    min-height: 430px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
-    padding: 35px 20px;
-    border-radius: 12px;
-    margin-bottom: 25px;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+    padding: 50px 20px;
+
+    background:
+    linear-gradient(
+        rgba(18,60,105,0.92),
+        rgba(11,41,72,0.92)
+    );
+    
+    color: white;
 }
 
-.hero h2 {
-    color: #123c69;
-    margin-bottom: 10px;
+.hero-content {
+    max-width: 800px;
 }
+
+.hero h1 {
+    font-size: 42px;
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    line-height: 1.7;
+    opacity: 0.95;
+}
+
+.hero-buttons {
+    margin-top: 25px;
+}
+
+.btn {
+    display: inline-block;
+    border: none;
+    padding: 12px 22px;
+    border-radius: 7px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 5px;
+    background: white;
+    color: #123c69;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+/* ================= SECTIONS ================= */
+
+section {
+    padding: 65px 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+.section-title {
+    text-align: center;
+    color: #123c69;
+    margin-bottom: 12px;
+    font-size: 30px;
+}
+
+.section-description {
+    text-align: center;
+    margin-bottom: 35px;
+    color: #666;
+}
+
+/* ================= CARDS ================= */
 
 .cards {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 18px;
+    grid-template-columns:
+        repeat(auto-fit, minmax(220px, 1fr));
+
+    gap: 22px;
 }
 
 .card {
     background: white;
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    text-align: center;
+    border-radius: 14px;
+
+    box-shadow:
+        0 5px 20px rgba(0,0,0,0.08);
+
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card-icon {
+    font-size: 35px;
+    margin-bottom: 15px;
 }
 
 .card h3 {
@@ -97,169 +187,1001 @@ nav button:hover {
     margin-bottom: 10px;
 }
 
-.card button {
-    margin-top: 15px;
-    padding: 10px 18px;
+.card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* ================= FORM ================= */
+
+.form-container {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+
+    border-radius: 15px;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.08);
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 7px;
+    color: #123c69;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccd5df;
+    border-radius: 7px;
+    outline: none;
+    font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #123c69;
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 13px;
     border: none;
+    border-radius: 7px;
     background: #123c69;
     color: white;
-    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
     cursor: pointer;
 }
 
-.section {
-    display: none;
-    background: white;
-    padding: 25px;
-    margin-top: 25px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+.submit-btn:hover {
+    background: #0b2948;
 }
 
-.section h2 {
+/* ================= RESULT / DETAILS BOX ================= */
+
+.output-box {
+    margin-top: 25px;
+}
+
+.details-card {
+    background: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+}
+
+.details-card h3 {
     color: #123c69;
     margin-bottom: 15px;
 }
 
-input {
-    width: 100%;
-    padding: 12px;
-    margin: 8px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.details-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 11px 0;
+    border-bottom: 1px solid #eee;
 }
 
-.submit-btn {
-    background: #123c69;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.details-row:last-child {
+    border-bottom: none;
+}
+
+/* ================= TABLE ================= */
+
+.table-container {
+    overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin-top: 15px;
-}
-
-th, td {
-    border: 1px solid #ddd;
-    padding: 12px;
-    text-align: center;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 th {
     background: #123c69;
     color: white;
+    padding: 13px;
 }
+
+td {
+    padding: 13px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+}
+
+tr:hover {
+    background: #f3f7fb;
+}
+
+/* ================= PROFILE ================= */
+
+.profile-card {
+    max-width: 700px;
+    margin: auto;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.08);
+}
+
+.profile-top {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.profile-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    background: #123c69;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    margin: auto auto 15px;
+}
+
+/* ================= FOOTER ================= */
 
 footer {
-    margin-top: 30px;
-    background: #123c69;
+    background: #0b2948;
     color: white;
     text-align: center;
-    padding: 18px;
+    padding: 30px 15px;
 }
-    .back-btn {
-    background: #123c69;
-    color: white;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-bottom: 15px;
-    font-size: 14px;
-    } ga
 
-@media(max-width:600px) {
-    header h1 {
-        font-size: 23px;
+footer p {
+    margin: 6px;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width: 800px) {
+
+    .header-container {
+        flex-direction: column;
     }
 
-    .container {
-        padding: 15px;
+    nav {
+        width: 100%;
     }
 
-    table {
+    nav a {
         font-size: 13px;
+        padding: 8px 10px;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .hero p {
+        font-size: 15px;
+    }
+
+    .section-title {
+        font-size: 25px;
+    }
+
+    .details-row {
+        flex-direction: column;
+        gap: 5px;
     }
 }
+
 </style>
 </head>
 
 <body>
 
+<!-- ================================================= -->
+<!-- HEADER -->
+<!-- ================================================= -->
+
 <header>
-    <h1>Exam Cell Management System</h1>
-    <p>Manage Examination Information Easily</p>
-</header>
+
+<div class="header-container">
+
+<div class="logo">
+    🎓 Exam Cell
+    <span>Examination Management System</span>
+</div>
 
 <nav>
-    <button onclick="showSection('home')">Home</button>
-    <button onclick="showSection('timetable')">Timetable</button>
-    <button onclick="showSection('results')">Results</button>
-    <button onclick="showSection('hallticket')">Hall Ticket</button>
-    <button onclick="showSection('login')">Student Login</button>
+
+<a href="#home">🏠 Home</a>
+
+<a href="#profile">👤 Profile</a>
+
+<a href="#timetable">📅 Timetable</a>
+
+<a href="#hallticket">🎫 Hall Ticket</a>
+
+<a href="#results">📊 Results</a>
+
+<a href="#login">🔐 Login</a>
+
 </nav>
 
-<div class="container">
+</div>
 
-<section id="home">
-    <div class="hero">
-        <h2>Welcome to Exam Cell Management System</h2>
-        <p>
-            Get examination notifications, timetables,
-            results and hall ticket information in one place.
-        </p>
-    </div>
+</header>
 
-    <div class="cards">
 
-        <div class="card">
-            <h3>📅 Exam Timetable</h3>
-            <p>View examination dates and subjects.</p>
-            <button onclick="showSection('timetable')">
-                View Timetable
-            </button>
-        </div>
+<!-- ================================================= -->
+<!-- HOME -->
+<!-- ================================================= -->
 
-        <div class="card">
-            <h3>📝 Results</h3>
-            <p>Check your examination results.</p>
-            <button onclick="showSection('results')">
-                Check Results
-            </button>
-        </div>
+<section id="home" class="hero">
 
-        <div class="card">
-            <h3>🎫 Hall Ticket</h3>
-            <p>View your examination hall ticket.</p>
-            <button onclick="showSection('hallticket')">
-                Hall Ticket
-            </button>
-        </div>
+<div class="hero-content">
 
-        <div class="card">
-            <h3>🎓 Student Login</h3>
-            <p>Login to access examination details.</p>
-            <button onclick="showSection('login')">
-                Login
-            </button>
-        </div>
+<h1>Welcome to Exam Cell Management System</h1>
 
-    </div>
+<p>
+Manage examination information easily.
+View timetables, hall tickets, results
+and student details from one place.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#timetable" class="btn">
+📅 View Timetable
+</a>
+
+<a href="#results" class="btn">
+📊 Check Results
+</a>
+
+</div>
+
+</div>
+
 </section>
 
 
-<section id="timetable" class="section">
-    <h2>📅 Examination Timetable</h2>
-    <button onclick="showSection('home')" class="back-btn">
-    ← Back to Home
-    </button>
+<!-- ================================================= -->
+<!-- HOME FEATURES -->
+<!-- ================================================= -->
 
-    <table>
+<section>
+
+<h2 class="section-title">
+Examination Services
+</h2>
+
+<p class="section-description">
+Access all important examination services.
+</p>
+
+<div class="cards">
+
+<div class="card">
+
+<div class="card-icon">📅</div>
+
+<h3>Exam Timetable</h3>
+
+<p>
+Select course, branch and year
+to view your examination timetable.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">🎫</div>
+
+<h3>Hall Ticket</h3>
+
+<p>
+Select your course and branch
+to view hall ticket information.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">📊</div>
+
+<h3>Results</h3>
+
+<p>
+Check examination results
+using your hall ticket number.
+</p>
+
+</div>
+
+
+<div class="card">
+
+<div class="card-icon">👤</div>
+
+<h3>Student Profile</h3>
+
+<p>
+View and edit student information
+including email details.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- PROFILE -->
+<!-- ================================================= -->
+
+<section id="profile">
+
+<h2 class="section-title">
+👤 Student Profile
+</h2>
+
+<p class="section-description">
+View and edit your student information.
+</p>
+
+<div class="profile-card">
+
+<div class="profile-top">
+
+<div class="profile-icon">
+👨‍🎓
+</div>
+
+<h2 id="profileName">
+Demo Student
+</h2>
+
+<p>
+Student Profile
+</p>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Student Name</label>
+
+<input
+type="text"
+id="studentName"
+value="Demo Student"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Student ID</label>
+
+<input
+type="text"
+id="studentId"
+value="CME001"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="studentEmail"
+value="student@example.com"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Phone Number</label>
+
+<input
+type="text"
+id="studentPhone"
+value="9876543210"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Course</label>
+
+<select id="profileCourse">
+
+<option>Diploma</option>
+<option>B.Tech</option>
+<option>Intermediate</option>
+
+</select>
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="updateProfile()">
+
+💾 Save Profile
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- TIMETABLE -->
+<!-- ================================================= -->
+
+<section id="timetable">
+
+<h2 class="section-title">
+📅 Examination Timetable
+</h2>
+
+<p class="section-description">
+First select Course → Branch → Year.
+Then view the related timetable.
+</p>
+
+
+<div class="form-container">
+
+<div class="form-group">
+
+<label>1. Select Course</label>
+
+<select id="courseSelect"
+onchange="loadBranches()">
+
+<option value="">
+-- Select Course --
+</option>
+
+<option value="Diploma">
+Diploma
+</option>
+
+<option value="B.Tech">
+B.Tech
+</option>
+
+<option value="Intermediate">
+Intermediate
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>2. Select Branch</label>
+
+<select id="branchSelect"
+onchange="loadYears()">
+
+<option value="">
+-- Select Branch --
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>3. Select Year / Semester</label>
+
+<select id="yearSelect">
+
+<option value="">
+-- Select Year --
+</option>
+
+</select>
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="showTimetable()">
+
+📅 View Timetable
+
+</button>
+
+
+<div
+id="timetableOutput"
+class="output-box">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- HALL TICKET -->
+<!-- ================================================= -->
+
+<section id="hallticket">
+
+<h2 class="section-title">
+🎫 Hall Ticket
+</h2>
+
+<p class="section-description">
+Select Course → Branch → Year → Hall Ticket.
+</p>
+
+
+<div class="form-container">
+
+<div class="form-group">
+
+<label>1. Select Course</label>
+
+<select id="hallCourse"
+onchange="loadHallBranches()">
+
+<option value="">
+-- Select Course --
+</option>
+
+<option value="Diploma">
+Diploma
+</option>
+
+<option value="B.Tech">
+B.Tech
+</option>
+
+<option value="Intermediate">
+Intermediate
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>2. Select Branch</label>
+
+<select id="hallBranch"
+onchange="loadHallYears()">
+
+<option value="">
+-- Select Branch --
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>3. Select Year</label>
+
+<select id="hallYear">
+
+<option value="">
+-- Select Year --
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>4. Hall Ticket Number</label>
+
+<input
+type="text"
+id="hallNumber"
+placeholder="Example: CME001"
+>
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="showHallTicket()">
+
+🎫 View Hall Ticket
+
+</button>
+
+
+<div
+id="hallOutput"
+class="output-box">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- RESULTS -->
+<!-- ================================================= -->
+
+<section id="results">
+
+<h2 class="section-title">
+📊 Examination Results
+</h2>
+
+<p class="section-description">
+Select Course and Branch, then enter Hall Ticket Number.
+</p>
+
+
+<div class="form-container">
+
+<div class="form-group">
+
+<label>1. Select Course</label>
+
+<select id="resultCourse"
+onchange="loadResultBranches()">
+
+<option value="">
+-- Select Course --
+</option>
+
+<option value="Diploma">
+Diploma
+</option>
+
+<option value="B.Tech">
+B.Tech
+</option>
+
+<option value="Intermediate">
+Intermediate
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>2. Select Branch</label>
+
+<select id="resultBranch">
+
+<option value="">
+-- Select Branch --
+</option>
+
+</select>
+
+</div>
+
+
+<div class="form-group">
+
+<label>3. Hall Ticket Number</label>
+
+<input
+type="text"
+id="resultHall"
+placeholder="Example: CME001"
+>
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="checkResult()">
+
+🔍 Check Result
+
+</button>
+
+
+<div
+id="resultOutput"
+class="output-box">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- STUDENT LOGIN -->
+<!-- ================================================= -->
+
+<section id="login">
+
+<h2 class="section-title">
+🔐 Student Login
+</h2>
+
+<p class="section-description">
+Login to access examination information.
+</p>
+
+
+<div class="form-container">
+
+<div class="form-group">
+
+<label>Student ID / Hall Ticket Number</label>
+
+<input
+type="text"
+id="loginId"
+placeholder="Enter Student ID"
+>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Password</label>
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Enter Password"
+>
+
+</div>
+
+
+<button
+class="submit-btn"
+onclick="studentLogin()">
+
+🔐 Login
+
+</button>
+
+
+<div
+id="loginOutput"
+class="output-box">
+</div>
+
+</div>
+
+</section>
+
+
+<!-- ================================================= -->
+<!-- FOOTER -->
+<!-- ================================================= -->
+
+<footer>
+
+<p>
+🎓 <b>Exam Cell Management System</b>
+</p>
+
+<p>
+Student Examination Portal
+</p>
+
+<p>
+© 2026 Exam Cell Management System
+</p>
+
+</footer>
+
+
+<!-- ================================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================================= -->
+
+<script>
+
+/* =========================================
+   BRANCH DATA
+========================================= */
+
+const branchData = {
+
+    "Diploma": [
+        "CME",
+        "ECE",
+        "EEE",
+        "Mechanical",
+        "Civil"
+    ],
+
+    "B.Tech": [
+        "CSE",
+        "ECE",
+        "EEE",
+        "Mechanical",
+        "Civil"
+    ],
+
+    "Intermediate": [
+        "MPC",
+        "BiPC",
+        "CEC"
+    ]
+
+};
+
+
+/* =========================================
+   LOAD TIMETABLE BRANCHES
+========================================= */
+
+function loadBranches() {
+
+    let course =
+        document.getElementById("courseSelect").value;
+
+    let branch =
+        document.getElementById("branchSelect");
+
+    branch.innerHTML =
+        '<option value="">-- Select Branch --</option>';
+
+    if (course && branchData[course]) {
+
+        branchData[course].forEach(function(item) {
+
+            branch.innerHTML +=
+                `<option value="${item}">
+                    ${item}
+                </option>`;
+
+        });
+
+    }
+
+    document.getElementById("yearSelect").innerHTML =
+        '<option value="">-- Select Year --</option>';
+}
+
+
+/* =========================================
+   LOAD TIMETABLE YEARS
+========================================= */
+
+function loadYears() {
+
+    let branch =
+        document.getElementById("branchSelect").value;
+
+    let year =
+        document.getElementById("yearSelect");
+
+    year.innerHTML =
+        '<option value="">-- Select Year --</option>';
+
+    if (branch) {
+
+        year.innerHTML +=
+            '<option>1st Year</option>';
+
+        year.innerHTML +=
+            '<option>2nd Year</option>';
+
+        year.innerHTML +=
+            '<option>3rd Year</option>';
+
+        year.innerHTML +=
+            '<option>4th Year</option>';
+
+        year.innerHTML +=
+            '<option>5th Semester</option>';
+
+        year.innerHTML +=
+            '<option>6th Semester</option>';
+    }
+
+}
+
+
+/* =========================================
+   SHOW TIMETABLE
+========================================= */
+
+function showTimetable() {
+
+    let course =
+        document.getElementById("courseSelect").value;
+
+    let branch =
+        document.getElementById("branchSelect").value;
+
+    let year =
+        document.getElementById("yearSelect").value;
+
+    let output =
+        document.getElementById("timetableOutput");
+
+
+    if (!course || !branch || !year) {
+
+        output.innerHTML =
+            `<div class="details-card">
+                ❌ Please select Course, Branch and Year.
+             </div>`;
+
+        return;
+    }
+
+
+    output.innerHTML = `
+
+    <div class="details-card">
+
+        <h3>
+        📅 ${course} - ${branch}
+        </h3>
+
+        <p>
+        <b>Year/Semester:</b> ${year}
+        </p>
+
+        <br>
+
+        <div class="table-container">
+
+        <table>
+
         <tr>
             <th>Date</th>
             <th>Subject</th>
@@ -267,123 +1189,438 @@ footer {
         </tr>
 
         <tr>
-            <td>20-08-2026</td>
+            <td>10-09-2026</td>
             <td>Computer Networks</td>
-            <td>9:30 AM - 12:30 PM</td>
+            <td>10:00 AM - 1:00 PM</td>
         </tr>
 
         <tr>
-            <td>22-08-2026</td>
+            <td>12-09-2026</td>
             <td>Web Technologies</td>
-            <td>9:30 AM - 12:30 PM</td>
+            <td>10:00 AM - 1:00 PM</td>
         </tr>
 
         <tr>
-            <td>25-08-2026</td>
+            <td>15-09-2026</td>
             <td>Database Management</td>
-            <td>9:30 AM - 12:30 PM</td>
+            <td>10:00 AM - 1:00 PM</td>
         </tr>
-    </table>
-</section>
 
+        <tr>
+            <td>17-09-2026</td>
+            <td>Software Engineering</td>
+            <td>10:00 AM - 1:00 PM</td>
+        </tr>
 
-<section id="results" class="section">
-    <h2>📝 Examination Results</h2>
-    <button onclick="showSection('home')" class="back-btn">
-        ← Back to Home
-    </button>
+        </table>
 
-    <input type="text" id="hallNo" placeholder="Enter Hall Ticket Number">
+        </div>
 
-    <button class="submit-btn" onclick="checkResult()">
-        Check Result
-    </button>
+    </div>
 
-    <p id="resultMessage" style="margin-top:15px;"></p>
-</section>
+    `;
 
-
-<section id="hallticket" class="section">
-    <h2>🎫 Hall Ticket</h2>
-    <button onclick="showSection('home')" class="back-btn">
-        ← Back to Home
-    </button>
-
-    <input type="text" placeholder="Enter Hall Ticket Number">
-
-    <button class="submit-btn" onclick="alert('Hall Ticket details will be displayed here.')">
-        View Hall Ticket
-    </button>
-</section>
-
-
-<section id="login" class="section">
-    <h2>🎓 Student Login</h2>
-    <button onclick="showSection('home')" class="back-btn">
-        ← Back to Home
-    </button>
-
-    <input type="text" placeholder="Student ID">
-
-    <input type="password" placeholder="Password">
-
-    <button class="submit-btn" onclick="loginStudent()">
-        Login
-    </button>
-
-    <p id="loginMessage" style="margin-top:15px;"></p>
-</section>
-
-</div>
-
-
-<footer>
-    <p>© 2026 Exam Cell Management System</p>
-    <p>Designed for Students</p>
-</footer>
-
-
-<script>
-
-function showSection(sectionName) {
-
-    document.getElementById("home").style.display = "none";
-
-    let sections = document.querySelectorAll(".section");
-
-    sections.forEach(function(section) {
-        section.style.display = "none";
-    });
-
-    if(sectionName === "home") {
-        document.getElementById("home").style.display = "block";
-    } 
-    else {
-        document.getElementById(sectionName).style.display = "block";
-    }
 }
+
+
+/* =========================================
+   HALL TICKET BRANCHES
+========================================= */
+
+function loadHallBranches() {
+
+    let course =
+        document.getElementById("hallCourse").value;
+
+    let branch =
+        document.getElementById("hallBranch");
+
+    branch.innerHTML =
+        '<option value="">-- Select Branch --</option>';
+
+    if (course && branchData[course]) {
+
+        branchData[course].forEach(function(item) {
+
+            branch.innerHTML +=
+                `<option value="${item}">
+                    ${item}
+                </option>`;
+
+        });
+
+    }
+
+}
+
+
+/* =========================================
+   HALL TICKET YEARS
+========================================= */
+
+function loadHallYears() {
+
+    let branch =
+        document.getElementById("hallBranch").value;
+
+    let year =
+        document.getElementById("hallYear");
+
+    year.innerHTML =
+        '<option value="">-- Select Year --</option>';
+
+    if (branch) {
+
+        year.innerHTML +=
+            '<option>1st Year</option>';
+
+        year.innerHTML +=
+            '<option>2nd Year</option>';
+
+        year.innerHTML +=
+            '<option>3rd Year</option>';
+
+        year.innerHTML +=
+            '<option>4th Year</option>';
+
+        year.innerHTML +=
+            '<option>5th Semester</option>';
+
+        year.innerHTML +=
+            '<option>6th Semester</option>';
+    }
+
+}
+
+
+/* =========================================
+   SHOW HALL TICKET
+========================================= */
+
+function showHallTicket() {
+
+    let course =
+        document.getElementById("hallCourse").value;
+
+    let branch =
+        document.getElementById("hallBranch").value;
+
+    let year =
+        document.getElementById("hallYear").value;
+
+    let hall =
+        document.getElementById("hallNumber").value.trim();
+
+    let output =
+        document.getElementById("hallOutput");
+
+
+    if (!course || !branch || !year || !hall) {
+
+        output.innerHTML =
+            `<div class="details-card">
+                ❌ Please fill all details.
+             </div>`;
+
+        return;
+    }
+
+
+    output.innerHTML = `
+
+    <div class="details-card">
+
+        <h3>🎫 Examination Hall Ticket</h3>
+
+        <div class="details-row">
+            <b>Student Name</b>
+            <span>Demo Student</span>
+        </div>
+
+        <div class="details-row">
+            <b>Hall Ticket Number</b>
+            <span>${hall}</span>
+        </div>
+
+        <div class="details-row">
+            <b>Course</b>
+            <span>${course}</span>
+        </div>
+
+        <div class="details-row">
+            <b>Branch</b>
+            <span>${branch}</span>
+        </div>
+
+        <div class="details-row">
+            <b>Year</b>
+            <span>${year}</span>
+        </div>
+
+        <div class="details-row">
+            <b>Examination Centre</b>
+            <span>College Examination Centre</span>
+        </div>
+
+        <div class="details-row">
+            <b>Exam Session</b>
+            <span>10:00 AM - 1:00 PM</span>
+        </div>
+
+    </div>
+
+    `;
+
+}
+
+
+/* =========================================
+   RESULT BRANCHES
+========================================= */
+
+function loadResultBranches() {
+
+    let course =
+        document.getElementById("resultCourse").value;
+
+    let branch =
+        document.getElementById("resultBranch");
+
+    branch.innerHTML =
+        '<option value="">-- Select Branch --</option>';
+
+    if (course && branchData[course]) {
+
+        branchData[course].forEach(function(item) {
+
+            branch.innerHTML +=
+                `<option value="${item}">
+                    ${item}
+                </option>`;
+
+        });
+
+    }
+
+}
+
+
+/* =========================================
+   CHECK RESULT
+========================================= */
 
 function checkResult() {
 
-    let hallNo = document.getElementById("hallNo").value;
+    let course =
+        document.getElementById("resultCourse").value;
 
-    if(hallNo === "") {
-        document.getElementById("resultMessage").innerHTML =
-        "Please enter your Hall Ticket Number.";
-    } 
-    else {
-        document.getElementById("resultMessage").innerHTML =
-        "Result search completed for Hall Ticket: " + hallNo;
+    let branch =
+        document.getElementById("resultBranch").value;
+
+    let hall =
+        document.getElementById("resultHall").value.trim();
+
+    let output =
+        document.getElementById("resultOutput");
+
+
+    if (!course || !branch || !hall) {
+
+        output.innerHTML =
+            `<div class="details-card">
+                ❌ Please select Course, Branch
+                and enter Hall Ticket Number.
+             </div>`;
+
+        return;
     }
+
+
+    /*
+       DEMO RESULT
+
+       Test Hall Ticket:
+       CME001
+    */
+
+
+    if (hall.toUpperCase() === "CME001") {
+
+        output.innerHTML = `
+
+        <div class="details-card">
+
+            <h3>📊 Examination Result</h3>
+
+            <div class="details-row">
+                <b>Name</b>
+                <span>Demo Student</span>
+            </div>
+
+            <div class="details-row">
+                <b>Hall Ticket</b>
+                <span>CME001</span>
+            </div>
+
+            <div class="details-row">
+                <b>Course</b>
+                <span>${course}</span>
+            </div>
+
+            <div class="details-row">
+                <b>Branch</b>
+                <span>${branch}</span>
+            </div>
+
+            <br>
+
+            <div class="table-container">
+
+            <table>
+
+            <tr>
+                <th>Subject</th>
+                <th>Marks</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>Computer Networks</td>
+                <td>82</td>
+                <td>PASS</td>
+            </tr>
+
+            <tr>
+                <td>Web Technologies</td>
+                <td>78</td>
+                <td>PASS</td>
+            </tr>
+
+            <tr>
+                <td>Database Management</td>
+                <td>85</td>
+                <td>PASS</td>
+            </tr>
+
+            <tr>
+                <td>Software Engineering</td>
+                <td>80</td>
+                <td>PASS</td>
+            </tr>
+
+            </table>
+
+            </div>
+
+            <br>
+
+            <h3>
+                🎉 RESULT: PASS
+            </h3>
+
+        </div>
+
+        `;
+
+    }
+
+    else {
+
+        output.innerHTML =
+        `<div class="details-card">
+
+            ❌ Result not found.
+
+            <br><br>
+
+            Please check your Hall Ticket Number.
+
+        </div>`;
+
+    }
+
 }
 
-function loginStudent() {
 
-    document.getElementById("loginMessage").innerHTML =
-    "Login system is ready. Backend connection can be added later.";
+/* =========================================
+   UPDATE PROFILE
+========================================= */
+
+function updateProfile() {
+
+    let name =
+        document.getElementById("studentName").value;
+
+    let email =
+        document.getElementById("studentEmail").value;
+
+    document.getElementById("profileName").innerText =
+        name || "Student";
+
+    alert(
+        "✅ Profile updated successfully!"
+        + "\n\nName: " + name
+        + "\nEmail: " + email
+    );
+
 }
 
-showSection("home");
+
+/* =========================================
+   STUDENT LOGIN
+========================================= */
+
+function studentLogin() {
+
+    let id =
+        document.getElementById("loginId").value.trim();
+
+    let password =
+        document.getElementById("loginPassword").value.trim();
+
+    let output =
+        document.getElementById("loginOutput");
+
+
+    if (!id || !password) {
+
+        output.innerHTML =
+        `<div class="details-card">
+            ❌ Please enter Student ID and Password.
+         </div>`;
+
+        return;
+    }
+
+
+    output.innerHTML =
+    `<div class="details-card">
+
+        <h3>✅ Login Successful</h3>
+
+        <p>
+        Welcome to the Student Examination Portal.
+        </p>
+
+    </div>`;
+
+}
+
+
+/* =========================================
+   ACTIVE PROFILE DATA
+========================================= */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function() {
+
+        console.log(
+            "Exam Cell Management System Loaded"
+        );
+
+    }
+);
 
 </script>
 
