@@ -78,6 +78,41 @@ main{padding:20px 4% 45px}
 </style>
 </head>
   
+  <script>
+function searchResult() {
+
+  const course = document.getElementById("resultCourse").value;
+  const branch = document.getElementById("resultBranch").value;
+  const semester = document.getElementById("resultSemester").value;
+  const hallTicket = document.getElementById("resultHallTicket").value.trim();
+
+  const message = document.getElementById("resultMessage");
+  const output = document.getElementById("resultOutput");
+
+  if (!course || !branch || !semester || !hallTicket) {
+    message.innerHTML =
+      "⚠️ Please select Course, Branch, Semester and enter Hall Ticket Number.";
+    output.style.display = "none";
+    return;
+  }
+
+  message.innerHTML = "";
+
+  document.getElementById("studentHall").innerText =
+    hallTicket.toUpperCase();
+
+  document.getElementById("studentCourse").innerText = course;
+  document.getElementById("studentBranch").innerText = branch;
+  document.getElementById("studentSemester").innerText = semester;
+
+  output.style.display = "block";
+
+  output.scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
+</script>
 <body>
 
 <div id="loader">
