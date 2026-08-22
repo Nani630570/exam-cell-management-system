@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+6<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -134,13 +134,210 @@ main{padding:20px 4% 45px}
   <div id="ttOutput"></div>
 </section>
 
-<section id="results" class="page">
-  <h2 class="section-title">📊 Examination Results</h2>
-  <div class="controls">
-    <div><label>Course</label><select id="resCourse" onchange="renderResults()"><option>Diploma</option><option>Inter</option><option>B.Tech</option></select></div>
-    <div><label>Hall Ticket Number</label><input id="resHall" placeholder="Enter hall ticket number" oninput="renderResults()"></div>
+<section id="resultsPage" class="page-section">
+  <div class="results-container">
+
+    <div class="results-header">
+      <span class="results-icon">📊</span>
+      <div>
+        <h1>Examination Results</h1>
+        <p>View your semester examination results</p>
+      </div>
+    </div>
+
+    <div class="result-search-card">
+
+      <h2>🔎 Search Result</h2>
+      <p class="subtitle">
+        Enter your examination details to view the result
+      </p>
+
+      <div class="form-grid">
+
+        <div class="form-group">
+          <label>Course</label>
+          <select id="resultCourse">
+            <option value="">Select Course</option>
+            <option value="Diploma">Diploma</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="Inter">Inter</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Branch</label>
+          <select id="resultBranch">
+            <option value="">Select Branch</option>
+            <option value="CME">CME</option>
+            <option value="CSE">CSE</option>
+            <option value="ECE">ECE</option>
+            <option value="EEE">EEE</option>
+            <option value="MECH">MECH</option>
+            <option value="Civil">Civil</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Year / Semester</label>
+          <select id="resultSemester">
+            <option value="">Select Semester</option>
+            <option>1st Semester</option>
+            <option>2nd Semester</option>
+            <option>3rd Semester</option>
+            <option>4th Semester</option>
+            <option>5th Semester</option>
+            <option>6th Semester</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label>Hall Ticket Number</label>
+          <input
+            type="text"
+            id="resultHallTicket"
+            placeholder="Enter Hall Ticket Number"
+          >
+        </div>
+
+      </div>
+
+      <button class="result-btn" onclick="searchResult()">
+        🔍 Get Result
+      </button>
+
+      <div id="resultMessage"></div>
+
+    </div>
+
+    <!-- RESULT OUTPUT -->
+    <div id="resultOutput" class="result-output">
+
+      <div class="student-result-card">
+
+        <div class="result-top">
+          <div>
+            <h2>SB-TET Examination Result</h2>
+            <p>Student Academic Result</p>
+          </div>
+
+          <span class="pass-badge">PASS</span>
+        </div>
+
+        <div class="student-details">
+
+          <div>
+            <span>Student Name</span>
+            <strong id="studentName">Sagar</strong>
+          </div>
+
+          <div>
+            <span>Hall Ticket No.</span>
+            <strong id="studentHall">DEMO12345</strong>
+          </div>
+
+          <div>
+            <span>Course</span>
+            <strong id="studentCourse">Diploma</strong>
+          </div>
+
+          <div>
+            <span>Branch</span>
+            <strong id="studentBranch">CME</strong>
+          </div>
+
+          <div>
+            <span>Semester</span>
+            <strong id="studentSemester">5th Semester</strong>
+          </div>
+
+        </div>
+
+        <div class="marks-table-wrapper">
+
+          <table class="marks-table">
+            <thead>
+              <tr>
+                <th>S.No</th>
+                <th>Subject</th>
+                <th>Max Marks</th>
+                <th>Marks Obtained</th>
+                <th>Grade</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>Digital Electronics</td>
+                <td>100</td>
+                <td>78</td>
+                <td>A</td>
+              </tr>
+
+              <tr>
+                <td>2</td>
+                <td>Software Engineering</td>
+                <td>100</td>
+                <td>82</td>
+                <td>A</td>
+              </tr>
+
+              <tr>
+                <td>3</td>
+                <td>Web Technology</td>
+                <td>100</td>
+                <td>75</td>
+                <td>A</td>
+              </tr>
+
+              <tr>
+                <td>4</td>
+                <td>Java Programming</td>
+                <td>100</td>
+                <td>85</td>
+                <td>A+</td>
+              </tr>
+
+              <tr>
+                <td>5</td>
+                <td>Computer Programming</td>
+                <td>100</td>
+                <td>80</td>
+                <td>A</td>
+              </tr>
+            </tbody>
+          </table>
+
+        </div>
+
+        <div class="result-summary">
+
+          <div>
+            <span>Total Marks</span>
+            <strong>400 / 500</strong>
+          </div>
+
+          <div>
+            <span>Percentage</span>
+            <strong>80%</strong>
+          </div>
+
+          <div>
+            <span>Result</span>
+            <strong class="success-text">PASS</strong>
+          </div>
+
+        </div>
+
+        <div class="result-actions">
+          <button onclick="window.print()">🖨️ Print Result</button>
+        </div>
+
+      </div>
+
+    </div>
+
   </div>
-  <div id="resOutput"></div>
 </section>
 
 <section id="hallticket" class="page">
